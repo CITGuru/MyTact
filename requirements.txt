@@ -1,0 +1,6 @@
+click==6.7
+PyInquirer==1.0.2
+six
+colorama
+termcolor
+pyfiglet
