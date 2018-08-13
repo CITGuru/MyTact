@@ -73,6 +73,9 @@ def update(**kwargs):
             if contact["id"] == kwargs["id"]:
                 _contact = contact
                 break
+            else:
+                log("Contact not found!", color="red")
+                sys.exit()
             pos+=1
     else:
         _data = selectContact(contacts)
@@ -84,6 +87,8 @@ def update(**kwargs):
             pos+=1
     
     id = kwargs.pop("id")
+
+
 
     if any(value is not None for value in kwargs.values()):
         _kwargs = {key:value for key, value in kwargs.items() if value is not None}
@@ -138,7 +143,7 @@ def get(**kwargs):
     for contact in pretty_contact:
         log(contact, color="blue")
     
-    if kwargs.get("query"):log("{} contacts".format(len(pretty_contact)))
+    log("{} contact(s)".format(len(pretty_contact)))
 
 if __name__ == '__main__':
     args = sys.argv

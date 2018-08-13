@@ -98,6 +98,7 @@ def askContactsInfo(kwargs):
             'validate': EmptyValidator,
         },
         {
+            # 'qmark': u'📞 ',
             'type': 'input',
             'name': 'phone',
             'message': 'Enter phone:',
@@ -105,6 +106,7 @@ def askContactsInfo(kwargs):
             'validate': PhoneNumberValidator,
         },
         {
+            # 'qmark': u'📧 ',
             'type': 'input',
             'name': 'email',
             'message': 'Enter email:',
@@ -144,9 +146,11 @@ def pretty_format(data):
 
     return contacts
 
+
 def selectContact(data):
     questions = [
         {
+            'qmark': u'📝 ',
             'type': 'list',
             'name': 'contact',
             'message': 'Select Contact',
