@@ -22,7 +22,6 @@ def main():
 # @click.option("--birthday")
 def add(**kwargs):
     """Add a Contact"""
-    # click.echo(kwargs["birthday"])
     contacts = data[0]["contacts"]
     contact = askContactsInfo(kwargs)
     contact["id"] = str(uuid.uuid4())
