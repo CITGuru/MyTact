@@ -13,7 +13,6 @@ def main():
     """A Simple Contacts App CLI"""
     pass
 
-
 @main.command()
 @click.argument('firstname', required=False)
 @click.argument('lastname', required=False)
@@ -30,7 +29,6 @@ def add(**kwargs):
     insert(data)
     log("Contact saved..", color="green")
     
-
 @main.command()
 @click.option("--id", help='Contact ID')
 def delete(**kwargs):
@@ -54,8 +52,6 @@ def delete(**kwargs):
     data[0]["contacts"].pop(pos)
     insert(data)
     log("Contact deleted..", color="green")
-
-
 
 @main.command()
 @click.option("--id", help='Contact ID')
@@ -87,8 +83,6 @@ def update(**kwargs):
     
     id = kwargs.pop("id")
 
-
-
     if any(value is not None for value in kwargs.values()):
         _kwargs = {key:value for key, value in kwargs.items() if value is not None}
         contact = askField(_kwargs)
@@ -103,8 +97,6 @@ def update(**kwargs):
     data[0]["contacts"][pos] = contact
     insert(data)
     log("Contact updated..", color="green")
-
-
 
 @main.command()
 @click.argument("len", type=click.INT, required=False)
@@ -125,8 +117,8 @@ def list(**kwargs):
 @click.option("--lastname", help='Contact lastname')
 @click.option("--email", help='Contact email')
 @click.option("--phone", help='Contact phone')
-def get(**kwargs):
-    """Get Contact"""
+def find(**kwargs):
+    """Find Contact"""
     data = load()[0]["contacts"]
     contacts = []
     for contact in data:
@@ -147,5 +139,5 @@ def get(**kwargs):
 if __name__ == '__main__':
     args = sys.argv
     if "--help" in args or len(args) == 1:
-        log("MyTact", color="red", figlet="True", font="georgia11")
+        log("MyTact", color="blue", figlet="True", font="georgia11")
     main()
