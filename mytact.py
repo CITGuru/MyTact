@@ -138,6 +138,6 @@ def find(**kwargs):
 
 if __name__ == '__main__':
     args = sys.argv
-    if "--help" in args or len(args) == 1:
-        log("MyTact", color="blue", figlet="True", font="georgia11")
+    # if "--help" in args or len(args) == 1:
+    #     log("MyTact", color="blue", figlet="True", font="georgia11")
     main()
