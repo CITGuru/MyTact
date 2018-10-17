@@ -1,9 +1,9 @@
 import sys
 import click
-from utils import askContactsInfo, log, selectContact, pretty_format, askField, create_data
+from mytact.utils import askContactsInfo, log, selectContact, pretty_format, askField, create_data
 import uuid
 from pprint import pprint
-from db import load, insert
+from mytact.db import load, insert
 
 data = load()
 

@@ -1,6 +1,6 @@
 import json
 import os
-from utils import getConfigDir
+from mytact.utils import getConfigDir
 
 DB_FILE = os.path.join(getConfigDir(), "data.json")
 
