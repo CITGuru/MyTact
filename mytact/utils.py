@@ -6,6 +6,7 @@ import os
 import sys
 from pyfiglet import Figlet, figlet_format
 import re
+import json
 
 
 from PyInquirer import style_from_dict, Token, prompt, print_json, Separator
@@ -80,6 +81,8 @@ class PhoneNumberValidator(Validator):
             raise ValidationError(
                 message='Please enter a valid phone number',
                 cursor_position=len(document.text))  # Move cursor to end
+        else:
+            return True
 
 def askContactsInfo(kwargs):
     questions = [
@@ -161,3 +164,21 @@ def selectContact(data):
     answers = prompt(questions, style=style)
     return answers
 
+def getConfigDir():
+    if sys.platform == "win32":
+        app_config_dir = os.getenv("LOCALAPPDATA")
+    else:
+        app_config_dir = os.getenv("HOME")
+        if os.getenv("XDG_CONFIG_HOME"):
+            app_config_dir = os.getenv("XDG_CONFIG_HOME")
+            
+    
+    configDir = os.path.join(app_config_dir, ".config")
+    return configDir
+
+def create_data():
+    path = os.path.join(getConfigDir(), "data.json")
+    schema = [{"contacts": []}, {"todos": []}]
+    if not os.path.exists(path):
+        with open(path, "wb") as _data:
+            json.dump(schema,_data)

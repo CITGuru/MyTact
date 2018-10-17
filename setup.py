@@ -8,9 +8,9 @@ setup (
     	python_requires='>=2.7', # any python greater than 2.7
 	entry_points='''
         [console_scripts]
-        mytact=mytact:main
+        mytact=mytact.__main__:main
     ''',
 	)
 
 # pip install wheel 
-# python setup.py bdist_wheel --universal 
+# 	

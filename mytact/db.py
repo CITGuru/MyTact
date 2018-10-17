@@ -1,7 +1,8 @@
 import json
 import os
+from utils import getConfigDir
 
-DB_FILE = "data.json"
+DB_FILE = os.path.join(getConfigDir(), "data.json")
 
 PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), DB_FILE) 
 
