@@ -124,7 +124,7 @@ def find(**kwargs):
     for contact in data:
         for opt in kwargs:
             if opt == "query":
-                if kwargs[opt] in contact.values():
+                if kwargs[opt].lower() in (x.lower() for x in contact.values()):
                     contacts.append(contact)
             else:
                 if kwargs[opt] == contact[opt]:
