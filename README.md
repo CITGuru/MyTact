@@ -91,33 +91,33 @@ E.g
 $ python mytact.py list 2
 ```
 
-## Get
+## Find
 
 ```bash
-$ python mytact.py get
+$ python mytact.py find
 ```
 
 or
 
 ```bash
-$ python mytact.py get <query>
+$ python mytact.py find <query>
 ```
 
 E.g 
 ```bash
-$ python mytact.py get Toby
+$ python mytact.py find Toby
 ```
 
 With options
 
 ```bash
-$ python mytact.py get --firstname <firstname> 
+$ python mytact.py find --firstname <firstname> 
 ```
 
 E.g
 
 ```bash
-$ python mytact.py get --firstname Oyetoke
+$ python mytact.py find --firstname Oyetoke
 ```
 
 ## Delete
