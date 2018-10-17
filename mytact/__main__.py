@@ -5,6 +5,8 @@ import uuid
 from pprint import pprint
 from mytact.db import load, insert
 
+create_data()
+
 data = load()
 
 @click.group()
@@ -34,6 +36,9 @@ def add(**kwargs):
 def delete(**kwargs):
     """Delete a Contact"""
     contacts = data[0]["contacts"]
+    if len(contacts) == 0:
+        log("Empty Contact list..", color="green")
+        return
     pos = 0
     if kwargs.get("id"):
         for contact in contacts:
@@ -62,6 +67,9 @@ def delete(**kwargs):
 def update(**kwargs):
     """Update a Contact"""
     contacts = load()[0]["contacts"]
+    if len(contacts) == 0:
+        log("Empty Contact list..", color="green")
+        return
     pos = 0
     if kwargs.get("id"):
         for contact in contacts:
@@ -140,5 +148,4 @@ if __name__ == '__main__':
     args = sys.argv
     if "--help" in args or len(args) == 1:
         log("MyTact", color="blue", figlet="True", font="georgia11")
-    create_data()
     main()

@@ -179,6 +179,6 @@ def getConfigDir():
 def create_data():
     path = os.path.join(getConfigDir(), "data.json")
     schema = [{"contacts": []}, {"todos": []}]
-    if not os.path.exists(path):
-        with open(path, "wb") as _data:
+    if not os.path.exists(path) or len(open(path, 'r').read().strip()) == 0:
+        with open(path, "w") as _data:
             json.dump(schema,_data)
