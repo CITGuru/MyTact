@@ -18,7 +18,7 @@ setup (
 	name = 'MyTact',
 	description = 'A Simple Contacts App for managing contacts right from the command line',
 	version = '1.0.0',
-	packages = find_packages(exclude=['docs', 'tests*']), # list of all packages
+	packages = find_packages(), # list of all packages
     install_requires = install_requires,
     python_requires='>=2.7', # any python greater than 2.7
 	entry_points='''
